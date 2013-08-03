@@ -17,6 +17,8 @@
 #ifndef ANDROID_INCLUDE_HARDWARE_POWER_H
 #define ANDROID_INCLUDE_HARDWARE_POWER_H
 
+#define HAS_MULTIMEDIA_HINTS
+
 #include <stdint.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
@@ -41,8 +43,13 @@ __BEGIN_DECLS
 typedef enum {
     POWER_HINT_VSYNC = 0x00000001,
     POWER_HINT_INTERACTION = 0x00000002,
+    /* DO NOT USE POWER_HINT_VIDEO_ENCODE/_DECODE!  They will be removed in
+     * KLP.
+     */
     POWER_HINT_VIDEO_ENCODE = 0x00000003,
-    POWER_HINT_CPU_BOOST = 0x00000004,
+    POWER_HINT_VIDEO_DECODE = 0x00000004,
+
+    POWER_HINT_CPU_BOOST = 0x00000010
 } power_hint_t;
 
 /**
@@ -110,6 +117,8 @@ typedef struct power_module {
      *     and it may be appropriate to raise speeds of CPU, memory bus,
      *     etc.  The data parameter is unused.
      *
+<<<<<<< HEAD
+=======
      * POWER_HINT_VIDEO_ENCODE
      *
      *     The user just started or stopped recording video. When encode
@@ -127,6 +136,7 @@ typedef struct power_module {
      *     be boosted for a specific duration. The data parameter is an
      *     integer value of the boost duration in microseconds.
      *
+>>>>>>> power: Add POWER_HINT_CPU_BOOST
      * A particular platform may choose to ignore any hint.
      *
      * availability: version 0.2
