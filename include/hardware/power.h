@@ -17,8 +17,6 @@
 #ifndef ANDROID_INCLUDE_HARDWARE_POWER_H
 #define ANDROID_INCLUDE_HARDWARE_POWER_H
 
-#define HAS_MULTIMEDIA_HINTS
-
 #include <stdint.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
@@ -29,7 +27,6 @@ __BEGIN_DECLS
 
 #define POWER_MODULE_API_VERSION_0_1  HARDWARE_MODULE_API_VERSION(0, 1)
 #define POWER_MODULE_API_VERSION_0_2  HARDWARE_MODULE_API_VERSION(0, 2)
-
 
 /**
  * The id of this module
